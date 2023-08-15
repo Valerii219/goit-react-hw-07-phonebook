@@ -11,6 +11,7 @@ const ContactList = () => {
   const deleteContact = contactId => {
     dispatch(deleteContacts({ contactId }));
   };
+  
 
   const newFilteredContacts = filter
     ? contacts.contacts.filter(contact =>

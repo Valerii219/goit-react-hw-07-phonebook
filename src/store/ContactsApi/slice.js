@@ -20,8 +20,8 @@ const contactsSlice = createSlice({
       })
       .addCase(createContactsThunk.fulfilled, handleCreateContacts )
       .addCase(deleteContactsThunk.fulfilled, handleDeleteContacts )
-      .addMatcher(action => action.type.endsWith('./pending'), handlePanding)
-      .addMatcher(action => action.type.endsWith('./rejected'), handleRejected);
+      .addMatcher(action => action.type.endsWith('pending'), handlePanding)
+      .addMatcher(action => action.type.endsWith('rejected'), handleRejected);
   },
 });
 
