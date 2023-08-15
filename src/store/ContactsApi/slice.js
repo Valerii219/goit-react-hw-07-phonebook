@@ -6,6 +6,11 @@ import { createContactsThunk, deleteContactsThunk, getAllContactsThunk } from '.
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    setFilter(state, action) {
+      state.filter = action.payload;
+    }},
+    
   extraReducers: builder => {
     builder
       

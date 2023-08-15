@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { createContacts } from 'store/contactsSlice/contactsSlice';
 import { createContactsThunk, getAllContactsThunk } from 'store/ContactsApi/requestFunction';
+import { contactsSelector } from 'store/ContactsApi/selector';
 
 
 const ContactForm = () => {
-  const contacts = useSelector(state => state.contacts);
+  const  contacts  = useSelector(contactsSelector);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -34,7 +34,7 @@ const ContactForm = () => {
       name: name,
       number: number,
     };
-    const sameContact = contacts.contacts.find(
+    const sameContact = contacts.contacts.items.find(
       contact => contact.name === newContact.name
     );
 
@@ -43,8 +43,8 @@ const ContactForm = () => {
       return;
     }
 
-    dispatch(createContacts(newContact));
-    dispatch(createContactsThunk(newContact))
+    // dispatch(createContacts(newContact));
+    dispatch(createContactsThunk(newContact));
 
     setName('');
     setNumber('');

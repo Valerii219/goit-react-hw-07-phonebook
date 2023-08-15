@@ -9,10 +9,8 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   const deleteContact = contactId => {
-    const deleteC = contacts.contacts.filter(
-      contact => contact.id !== contactId);
-
-    dispatch(deleteContacts(deleteC))   };
+    dispatch(deleteContacts({ contactId }));
+  };
 
   const newFilteredContacts = filter
     ? contacts.contacts.filter(contact =>
