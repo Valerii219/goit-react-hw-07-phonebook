@@ -3,7 +3,7 @@ import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { createContacts } from 'store/contactsSlice/contactsSlice';
-import { getAllContactsThunk } from 'store/ContactsApi/requestFunction';
+import { createContactsThunk, getAllContactsThunk } from 'store/ContactsApi/requestFunction';
 
 
 const ContactForm = () => {
@@ -44,6 +44,7 @@ const ContactForm = () => {
     }
 
     dispatch(createContacts(newContact));
+    dispatch(createContactsThunk(newContact))
 
     setName('');
     setNumber('');
