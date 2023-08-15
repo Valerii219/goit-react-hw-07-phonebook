@@ -14,7 +14,7 @@ const ContactForm = () => {
 
   useEffect(() => {
     dispatch(getAllContactsThunk());
-  }, []);
+  }, [dispatch]);
 
   const handleChange = e => {
     setName(e.target.value);
