@@ -23,9 +23,9 @@ const ContactList = () => {
   return (
     newFilteredContacts.length > 0 && (
       <ul>
-        {newFilteredContacts.map(({ name, id, number }) => (
+        {newFilteredContacts.map(({ name, id, phone }) => (
           <li key={id} className={css.itemList}>
-            {name}: {number}
+            {name}: {phone}
             <button onClick={() => deleteContact(id)} className={css.btn}>
               Delete
             </button>
