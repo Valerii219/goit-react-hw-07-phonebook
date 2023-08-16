@@ -13,7 +13,6 @@ export const App = () => {
       <h2>Contacts</h2>
       { filter && <ContactList />}
   <Filter />
-  
     </div>
   );
 };
