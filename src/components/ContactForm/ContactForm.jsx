@@ -30,11 +30,14 @@ useEffect(()=>{
       }
   
     const newContact = {
-    id:nanoid(),
-    name:name,
+  
+      name:name,
     phone:phone,
+    id:nanoid(),
+    
       };
-      const sameContact = contacts.contacts.find((contact) => contact.name === newContact.name);
+
+    const sameContact = contacts.contacts.find((contact) => contact.name === newContact.name);
 
       if (sameContact) {
         alert(`${sameContact.name} is already in contacts`)
@@ -42,7 +45,7 @@ useEffect(()=>{
       }
     
     dispatch(createContacts(newContact));
-    dispatch(createContactsThunk(newContact))
+    dispatch(createContactsThunk({name, phone}))
     setName('');
     setPhone('');
   }      

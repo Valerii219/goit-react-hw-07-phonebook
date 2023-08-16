@@ -26,6 +26,7 @@ const contactsSlice = createSlice({
         })
         .addCase(createContactsThunk.fulfilled, (state, action) => {
           state.isLoading = false;
+          
         }).addCase(deleteContactsThunk.fulfilled, (state, action) => {
           state.isLoading = false;
         })
