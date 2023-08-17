@@ -23,32 +23,32 @@ useEffect(()=>{
       setPhone( e.target.value)
      }
 
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-      if(name === "" || phone === "")
-      {return
-      }
-  
-    const newContact = {
-  
-      name:name,
-    phone:phone,
-    id:nanoid(),
+     const handleSubmit = (e)=>{
+      e.preventDefault()
+        if(name === "" || phone === "")
+        {return
+        }
     
-      };
-
-    const sameContact = contacts.contacts.find((contact) => contact.name === newContact.name);
-
-      if (sameContact) {
-        alert(`${sameContact.name} is already in contacts`)
-        return ;
-      }
+      const newContact = {
     
-    dispatch(createContacts(newContact));
-    dispatch(createContactsThunk({name, phone}))
-    setName('');
-    setPhone('');
-  }      
+        name:name,
+      phone:phone,
+      id:nanoid(),
+      
+        };
+  
+      const sameContact = contacts.contacts.find((contact) => contact.name === newContact.name);
+  
+        if (sameContact) {
+          alert(`${sameContact.name} is already in contacts`)
+          return ;
+        }
+      
+      dispatch(createContacts(newContact));
+      dispatch(createContactsThunk({name, phone})).then(()=>dispatch(getAllContactsThunk()))
+      setName('');
+      setPhone('');
+    }
 
   return(<><form action="" onSubmit={handleSubmit}>
   <div className={css.formInp}>       

@@ -2,6 +2,7 @@ import React from 'react';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContactsThunk } from 'store/contactsSlice/actions';
+import { deleteContacts } from 'store/contactsSlice/contactsSlice';
 
 
 const ContactList = () => {
@@ -9,11 +10,10 @@ const ContactList = () => {
   const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
-  const deleteContact = contactId => {
+ const deleteContact = contactId => {
     const deleteC = contacts.contacts.filter(
       contact => contact.id !== contactId);
-      console.log(deleteC);
-     
+      dispatch(deleteContacts(deleteC));   
   dispatch(deleteContactsThunk(contactId))  };
   
   const newFilteredContacts = filter

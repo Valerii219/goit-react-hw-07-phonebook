@@ -14,4 +14,3 @@ export const deleteContactsThunk = createAsyncThunk('contacts/deleteContact', (d
 deleteContacts(data)
 
 );
-console.log(deleteContactsThunk());
